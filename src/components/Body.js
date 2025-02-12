@@ -18,8 +18,9 @@ const Body = () => {
   async function getRestaurants() {
     const data = await fetch(RESTAURANTS_URL);
     const json = await data.json();
-    setAllRestaurants(json?.data?.cards?.[2]?.data?.data?.cards);
-    setFilteredRestaurants(json?.data?.cards?.[2]?.data?.data?.cards);
+    debugger;
+    setAllRestaurants(json?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setFilteredRestaurants(json?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
   }
 
   if (!allRestaurants) return null;
@@ -62,10 +63,10 @@ const Body = () => {
             >
               {filteredRestaurants.map((restaurant) => (
                 <Link
-                  to={`/restaurant/${restaurant.data.id}`}
-                  key={restaurant.data.id}
+                  to={`/restaurant/${restaurant.info.id}`}
+                  key={restaurant.info.id}
                 >
-                  <RestaurantCard {...restaurant.data} />
+                  <RestaurantCard {...restaurant.info} />
                 </Link>
               ))}
             </div>

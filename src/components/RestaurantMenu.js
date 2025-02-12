@@ -22,6 +22,10 @@ const RestaurantMenu = () => {
     restaurant?.cards?.[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[1]?.card
       ?.card?.itemCards ||
     restaurant?.cards?.[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[2]?.card
+      ?.card?.itemCards ||
+      restaurant?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[1]?.card
+      ?.card?.itemCards ||
+      restaurant?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[2]?.card
       ?.card?.itemCards;
 
   const handleAddItem = (item) => {
@@ -138,7 +142,7 @@ const RestaurantMenu = () => {
                     <img
                       loading='lazy'
                       className='w-[118px] h-24 rounded-lg object-cover'
-                      src={MENU_IMG_CDN_URL + item?.card?.info?.imageId}
+                      src={IMG_CDN_URL + item?.card?.info?.imageId}
                     />
                   )}
                 </div>

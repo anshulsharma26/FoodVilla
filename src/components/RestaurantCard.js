@@ -7,14 +7,14 @@ const RestaurantCard = (props) => {
     cloudinaryImageId,
     cuisines,
     avgRating,
-    deliveryTime,
-    costForTwoString,
+    sla,
+    costForTwo,
   } = props;
   return (
     <div className='m-4 shadow-[0_4px_8px_0_rgba(0,0,0,0.2)] hover:shadow-[0_8px_16px_0_rgba(0,0,0,0.2)] transition duration-[0.3s] rounded-[5px] cursor-pointer'>
       {cloudinaryImageId ? (
         <img
-          className='w-full rounded-t-[5px]'
+          className='w-full h-[300px] rounded-t-[5px]'
           loading='lazy'
           src={IMG_CDN_URL + cloudinaryImageId}
           alt='image'
@@ -51,9 +51,9 @@ const RestaurantCard = (props) => {
           <span style={{ fontWeight: 700 }}>{avgRating}</span>
         </div>
         <div>•</div>
-        <div>{deliveryTime} MINS</div>
+        <div>{sla.slaString} MINS</div>
         <div>•</div>
-        <div>{costForTwoString}</div>
+        <div>{costForTwo}</div>
       </div>
     </div>
   );
