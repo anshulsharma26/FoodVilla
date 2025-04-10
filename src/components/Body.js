@@ -19,8 +19,13 @@ const Body = () => {
     const data = await fetch(RESTAURANTS_URL);
     const json = await data.json();
     debugger;
-    setAllRestaurants(json?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-    setFilteredRestaurants(json?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    const restaurantsCard = json?.data?.cards?.find(
+      (card) => card?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+    
+    const restaurants = restaurantsCard?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+    setAllRestaurants(restaurants);
+    setFilteredRestaurants(restaurants);
   }
 
   if (!allRestaurants) return null;
